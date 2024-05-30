@@ -25,9 +25,11 @@
     "react-slick": "^0.30.2",
     "react-slider": "^2.0.6",
     "react-slideshow-image": "^4.3.1",
+    "react-yandex-maps": "^4.6.0",
     "sass": "^1.75.0",
     "swiper": "^11.1.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yandex-maps": "^0.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

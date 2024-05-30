@@ -8,6 +8,7 @@ import FifthComponent from "./components/fifthComponent";
 import SixthComponent from "./components/sixthComponent";
 import SeventhComponent from "./components/SeventhComponent";
 import FooterComponent from "./components/footer";
+import SeventhCopy from "./components/seventhCopy";
 
 
 export default function MainApp() {
@@ -19,7 +20,7 @@ export default function MainApp() {
       <FourthComponent />
       <FifthComponent />
       <SixthComponent />
-      <SeventhComponent />
+      <SeventhCopy/>
       <FooterComponent/>
   </div>;
 }

@@ -93,8 +93,182 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  @media (min-width:1000px) {
+  @media (min-width: 1000px) {
     align-items: center;
+  }
+  .calculator {
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+.navbarBreand {
+  cursor: default;
+  color: #5abfab !important;
+  margin-left: -20px;
+  font-weight: 600;
+  @media (max-width: 500px) {
+    visibility: hidden;
+  }
+}
+
+
+.customModalOne {
+ 
+  border-radius: 20px;
+  h1 {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.05px;
+    color: #5abfab;
+  }
+  .rowTop {
+    margin-top:20px;
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      height: 50px;
+      align-self: flex-end;
+      border: none;
+      background:none;
+    }
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    input {
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      @media (max-width:600px){
+        width: 150px;
+      }
+      @media (max-width:450px){
+        width: 120px;
+      }
+    }
+  }
+  .rowMiddleOne {
+    display: none;
+    margin-top:15px;
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      height: 50px;
+      align-self: flex-end;
+      border: none;
+      visibility: hidden;
+      @media (max-width:450px){
+        width: 10px;
+      }
+    }
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      @media (max-width:600px){
+        width: 150px;
+      }
+      @media (max-width:450px){
+        width: 120px;
+      }
+    }
+    select {
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      @media (max-width:600px){
+        width: 150px;
+      }
+    }
+  }
+
+  .rowMiddleTwo {
+    margin-top:15px;
+    display: flex;
+    justify-content: space-evenly;
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    input {
+      // width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+    }
+    .middleTwoLeft {
+      width: 30%;
+    }
+    .middleRightTwo {
+      width: 60%;
+      @media (max-width:400px){
+        width: 50%;
+      }
+    }
+
+    .btnMiddleTwo {
+      visibility: hidden;
+      @media (max-width:400px){
+        width: 10px;
+      }
+    }
+
+    .leftDivMiddleTwo {
+      width: 100%;
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      display: flex;
+      height: 50px;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 20px;
+     button{
+      background-color: white;
+      border: none;
+      margin-left: 5px;
+     }
+     h5{
+      margin: 5px;
+      
+     }
+    }
+  }
+
+  .rowBottom {
+    margin-top: 15px;
+    border-radius: 10px;
+    
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+  .buttonBottom {
+    margin-top:10px;
+    width: 100%;
+    height: 50px;
+    gap: 0px;
+    border-radius: 10px;
+    background-color: #5abfab;
+    color: white;
+    border: none;
+    @media (max-width:450px){
+    }
   }
 }
 
@@ -102,27 +276,55 @@
 
 .firstComp {
   max-width: 1600px;
-  background-color: black;
   max-height: 700px;
-
 }
+
 .bigImgText {
-  height: 80vh;
+  height: 100vh;
+  width: 120vh;
+  margin-bottom: -20px;
+  margin-left: -213px;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
-  @media (max-width: 500px) {
-    height: 65vh;
-  } 
-  h3 {
-    color: black;
-    background-color: linear;
+  padding-left: 30px;
+  background: linear-gradient(to left, #88888800 0%, #3ab783 100%);
+  padding-left: 213px;
+  @media (max-width: 860px) {
+    width: 110%;
   }
-  p {
-    color: black;
-    font-weight: 600;
+
+  @media (max-width: 500px) {
+    width: 130%;
+  }
+
+  .wrapper {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @media (max-width: 500px) {
+      margin-top: 300px;
+    }
+    @media (max-width: 380px) {
+      margin-top: 200px;
+    }
+
+    h1 {
+      color: white;
+    }
+    h3 {
+      color: #ffec45;
+      background-color: linear;
+    }
+    p {
+      flex-wrap: wrap;
+      color: white;
+      font-weight: 600;
+      display: inline;
+      text-align: start;
+    }
   }
 }
 
@@ -130,7 +332,7 @@
   width: 100%;
   height: 700px;
   overflow: hidden;
-  @media (max-width:500px){
+  @media (max-width: 500px) {
     height: 550px;
   }
 }
@@ -138,15 +340,17 @@
 .image-background {
   width: 100%;
   height: 100%;
-  background-image: url('./components/img/RectangleOne.png');
-  background-size: cover; 
-  background-position: center; 
+  background-image: url("./components/img/RectangleOne.png");
+  background-size: cover;
+  background-position: center;
 }
-.image-background-two{
-  background-image: url('./components/img/RectangleThree.png');
+
+.image-background-two {
+  background-image: url("./components/img/RectangleThree.png");
 }
-.image-background-three{
-  background-image: url('./components/img/RectangleTwo.png');
+
+.image-background-three {
+  background-image: url("./components/img/RectangleTwo.png");
 }
 
 // beginning of the second component ------>>>>>>>>>
@@ -229,15 +433,15 @@
     .rightBottom {
       display: flex;
       gap: 10px;
-        @media (max-width:'500px'){
-          flex-wrap: wrap;
-        }
+      @media (max-width: "500px") {
+        flex-wrap: wrap;
+      }
       .rightBottomLeft {
         background-color: white;
         border-radius: 20px;
         padding: 20px;
         width: 50%;
-         @media (max-width:'500px'){
+        @media (max-width: "500px") {
           width: 100%;
         }
         h5 {
@@ -249,7 +453,7 @@
         border-radius: 20px;
         padding: 20px;
         width: 50%;
-        @media (max-width:'500px'){
+        @media (max-width: "500px") {
           width: 100%;
         }
       }
@@ -346,7 +550,7 @@
       }
       border-radius: 10px;
     }
-    
+
     h1 {
       font-size: 24px;
       color: #5abfab;
@@ -364,11 +568,10 @@
       @media (max-width: 450px) {
         width: 350px;
       }
-      &:hover{
-      background-color: navy;
-     }
+      &:hover {
+        background-color: navy;
+      }
     }
-    
   }
 }
 // sixth component ends here and seventh component begins here ==>>
@@ -411,14 +614,14 @@
     @media (max-width: 450px) {
       padding: 20px 20px;
     }
-    input{
+    input {
       height: 60px;
     }
     .twoInput {
       display: flex;
       gap: 20px;
-      @media (max-width:450px){
-        flex-direction: column; 
+      @media (max-width: 450px) {
+        flex-direction: column;
       }
     }
     h1 {
@@ -445,7 +648,7 @@
 
 .footer {
   .innerFooter {
-    .mbdCol{
+    .mbdCol {
       gap: 20px;
     }
     ul {
@@ -474,7 +677,7 @@
 // footer is end here and tyle modal begins here
 
 .customModal {
-  input{
+  input {
     height: 50px;
   }
   @media (max-width: 550px) {

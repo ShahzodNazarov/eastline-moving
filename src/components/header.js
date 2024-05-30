@@ -4,6 +4,7 @@ import { Link } from "react-scroll";
 import youtube from "./img/youtube.png";
 import "react-responsive-modal/styles.css";
 import phone from "./img/ph_phone-light.png";
+import { GoArrowSwitch } from "react-icons/go";
 import { Modal } from "react-responsive-modal";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -14,15 +15,20 @@ import facebook from "./img/iconoir_facebook.png";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import telegram from "./img/basil_telegram-outline.png";
 import eastlinelogo from "./img/eastline-black-logo 1.png";
+import SixthComponent from "./sixthComponent";
 
 export default function Header() {
+  let size = localStorage.getItem('count');
   const [open, setOpen] = useState(false);
+  let [openOne, setOpenOne] = useState(false);
+  let [openTwo, setOpenTwo] = useState(false);
+  let [countWorker,setCountWorker]=useState(JSON.parse(size)??0);
   let navigate = useNavigate();
   let location = useLocation();
   let nameRef = useRef();
   let phoneRef = useRef();
   let textRef = useRef();
-
+  
   function sendQuestion() {
     setOpen(!open);
   }
@@ -52,6 +58,15 @@ export default function Header() {
 
   function defaultComp() {}
 
+  function increment(params) {
+      setCountWorker(++countWorker);
+      localStorage.setItem('count',JSON.stringify(countWorker));
+  }
+  function decrement(params) {
+    if (countWorker>0) {
+      setCountWorker(--countWorker);
+    }
+  }
   return (
     <div className="headerComponentContainer">
       <div className="headerTop">
@@ -107,36 +122,18 @@ export default function Header() {
         <Navbar.Brand href="https://eastline.uz">
           <img src={eastlinelogo} alt="Logo 1" className="brand-logo mr-2" />
         </Navbar.Brand>
+        <Navbar.Brand href="https://eastline.uz" className="navbarBreand">
+          <h6>
+            УСЛУГИ <br /> ПЕРЕЕЗДА
+          </h6>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto " style={{}}>
             <hr />
-            <Link
-              onClick={location.pathname != "/" ? backToMain : defaultComp}
-              to="sixth"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              type="button"
-              className="textHover"
-              id="getOne"
-            >
-              УСЛУГИ ПЕРЕЕЗДА
-            </Link>
-            <hr />
-            <Link
-              onClick={location.pathname != "/" ? backToMain : defaultComp}
-              to="first"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-              type="button"
-              className="textHover"
-            >
-              Главная
-            </Link>
+            <button className="calculator" onClick={() => setOpenOne(!openOne)}>
+              Калькулятор 
+            </button>
             <hr />
             <Link
               onClick={location.pathname != "/" ? backToMain : defaultComp}
@@ -261,6 +258,97 @@ export default function Header() {
           </Modal>
         </Navbar.Collapse>
       </Navbar>
+
+      <Modal
+        open={openOne}
+        onClose={() => setOpenOne(!openOne)}
+        center
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModalOne",
+        }}
+      >
+        <h1>Калькулятор</h1>
+        <div className="rowTop">
+          <div>
+            <label htmlFor="rowTopInputLeft">Адрес погрузки</label>
+            <input type="text" className="form-control" id="rowTopInputLeft"
+            placeholder="погрузки" />
+          </div>
+          <button><GoArrowSwitch /></button>
+          <div>
+            <label htmlFor="rowTopInputRight">Адрес выгрузки</label>
+            <input type="text" className="form-control" id="rowTopInputRight"
+            placeholder="выгрузки" />
+          </div>
+        </div>
+
+        <div className="rowMiddleOne">
+          <div>
+            <label htmlFor="rowMiddleOneInputLeft">Выбрать машину</label>
+            <select id="rowMiddleOneInputLeft" className="form-select">
+              <option value="choose">choose...</option>
+            </select>
+          </div>
+          <button>==</button>
+          <div>
+            <label htmlFor="rowMiddleOneInputRight">Когда</label>
+            <input
+              type="date"
+              className="form-control"
+              id="rowMiddleOneInputRight"
+            />
+          </div>
+        </div>
+
+        <div className="rowMiddleTwo">
+          <div className="middleTwoLeft">
+            <label htmlFor="rowMiddleTwoInputLeft">Грузчики</label>
+            <div className="leftDivMiddleTwo" id="rowMiddleTwoInputLeft">
+              <h5>{countWorker}</h5>
+              <div>
+                <button onClick={decrement}>-</button>
+                <button onClick={increment}>+</button>
+              </div>
+            </div>
+          </div>
+          <button className="btnMiddleTwo">==</button>
+          <div className="middleRightTwo">
+            <label htmlFor="rowMiddleTwoInputRight">Номер телефона</label>
+            <input
+              type="text"
+              className="form-control"
+              id="rowMiddleTwoInputRight"
+              placeholder="+998"
+            />
+          </div>
+        </div>
+
+        <div className="rowBottom">
+          <label htmlFor="rowBottom">Комментарий к заказу</label>
+          <textarea
+            rows={5}
+            id="rowBottom"
+            className="form-control"
+            placeholder="write text here"
+          ></textarea>
+        </div>
+
+        <button className="buttonBottom">Оформить</button>
+        {/* <button onClick={() => setOpenTwo(!openTwo)}>och</button> */}
+      </Modal>
+
+      <Modal
+        open={openTwo}
+        onClose={() => setOpenTwo(!openTwo)}
+        center
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModal",
+        }}
+      >
+        <h1>alek</h1>
+      </Modal>
     </div>
   );
 }
