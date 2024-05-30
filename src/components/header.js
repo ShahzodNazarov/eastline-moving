@@ -16,19 +16,29 @@ import { Navbar, Nav, Button } from "react-bootstrap";
 import telegram from "./img/basil_telegram-outline.png";
 import eastlinelogo from "./img/eastline-black-logo 1.png";
 import SixthComponent from "./sixthComponent";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Header() {
-  let size = localStorage.getItem('count');
+  let size = localStorage.getItem("count");
+
+  const [takeLoad, setTakeLoad] = useState("");
+  const [unload, setUnload] = useState("");
+  const [TruckValue, setTruckValue] = useState('');
+  const [dateTime, setDateTime] = useState("");
+  const [numberValue, setNumberValue] = useState("");
+  const [textareaValue, setTextAreaValue] = useState("");
+
   const [open, setOpen] = useState(false);
   let [openOne, setOpenOne] = useState(false);
   let [openTwo, setOpenTwo] = useState(false);
-  let [countWorker,setCountWorker]=useState(JSON.parse(size)??0);
+  let [countWorker, setCountWorker] = useState(JSON.parse(size) ?? 0);
   let navigate = useNavigate();
   let location = useLocation();
   let nameRef = useRef();
   let phoneRef = useRef();
   let textRef = useRef();
-  
+
   function sendQuestion() {
     setOpen(!open);
   }
@@ -59,16 +69,79 @@ export default function Header() {
   function defaultComp() {}
 
   function increment(params) {
-      setCountWorker(++countWorker);
-      localStorage.setItem('count',JSON.stringify(countWorker));
+    setCountWorker(++countWorker);
+    localStorage.setItem("count", JSON.stringify(countWorker));
   }
   function decrement(params) {
-    if (countWorker>0) {
+    if (countWorker > 0) {
       setCountWorker(--countWorker);
+      localStorage.setItem("count", JSON.stringify(countWorker));
     }
   }
+
+  function changeLoadValue() {
+    let valueLoad = takeLoad;
+    let valueUnload = unload;
+    setTakeLoad(valueUnload);
+    setUnload(valueLoad);
+  }
+
+
+  function getAlert(sms) {
+    setOpenOne(false);
+    toast.success(`🦄 ${sms}! `, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    transition: Bounce,
+    });
+  }
+
+
+  function checkEmpty() {
+    if (takeLoad!=''&&unload!=''&&TruckValue!='') {
+       return true;
+       console.log(takeLoad);
+    }else return false;
+  }
+
+
+  function sendApplication() {
+    let obj = {
+      takeLoad,
+      unload,
+      TruckValue,
+      dateTime,
+      countWorker,
+      numberValue,
+      textareaValue,
+    };
+    if (checkEmpty()) {
+      getAlert('request send succesfullt')
+    }else getAlert('sending sms error')
+
+    console.log(obj);
+  }
+
   return (
     <div className="headerComponentContainer">
+      <ToastContainer
+position="top-right"
+autoClose={1000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
       <div className="headerTop">
         <div className="headerTopLeft">
           <ul>
@@ -132,7 +205,7 @@ export default function Header() {
           <Nav className="ml-auto " style={{}}>
             <hr />
             <button className="calculator" onClick={() => setOpenOne(!openOne)}>
-              Калькулятор 
+              Калькулятор
             </button>
             <hr />
             <Link
@@ -272,28 +345,69 @@ export default function Header() {
         <div className="rowTop">
           <div>
             <label htmlFor="rowTopInputLeft">Адрес погрузки</label>
-            <input type="text" className="form-control" id="rowTopInputLeft"
-            placeholder="погрузки" />
+            <input
+              value={takeLoad}
+              onChange={(e) => {
+                setTakeLoad(e.target.value);
+              }}
+              type="text"
+              className="form-control"
+              id="rowTopInputLeft"
+              placeholder="погрузки"
+            />
           </div>
-          <button><GoArrowSwitch /></button>
+          <button onClick={changeLoadValue}>
+            <GoArrowSwitch />
+          </button>
           <div>
             <label htmlFor="rowTopInputRight">Адрес выгрузки</label>
-            <input type="text" className="form-control" id="rowTopInputRight"
-            placeholder="выгрузки" />
+            <input
+              value={unload}
+              onChange={(e) => {
+                setUnload(e.target.value);
+              }}
+              type="text"
+              className="form-control"
+              id="rowTopInputRight"
+              placeholder="выгрузки"
+            />
           </div>
         </div>
 
         <div className="rowMiddleOne">
           <div>
             <label htmlFor="rowMiddleOneInputLeft">Выбрать машину</label>
-            <select id="rowMiddleOneInputLeft" className="form-select">
-              <option value="choose">choose...</option>
+            <select
+              id="rowMiddleOneInputLeft"
+              className="form-select"
+              onChange={(e) => setTruckValue(e.target.value)}
+            >
+              <option value="choose">Выбрать...</option>
+              <option value="Лабо">
+                Лабо / Длина 2м / Висота 1,3м / Весь, 0,5т
+              </option>
+              <option value="Газель">
+                Газель / Длина 3м / Висота 1,5м / Весь, 1,5т
+              </option>
+              <option value="Тент высокый 3 метра">
+                Тент высокый 3 метра / Длина 3м / Висота 2м / Весь, 1,5т
+              </option>
+              <option value="Тент высокый 4 метра">
+                Тент высокый 4 метра / Длина 4м / Висота 2,2м / Весь, 1,5т
+              </option>
+              <option value="Борт 4 Метра">Борт 4 Метра</option>
+              <option value="Фургона , 5 Метров , 5тoнн">
+                Фургона / 5 Метров / 5тoнн
+              </option>
             </select>
           </div>
+
           <button>==</button>
           <div>
             <label htmlFor="rowMiddleOneInputRight">Когда</label>
             <input
+              value={dateTime}
+              onChange={(e) => setDateTime(e.target.value)}
               type="date"
               className="form-control"
               id="rowMiddleOneInputRight"
@@ -316,6 +430,8 @@ export default function Header() {
           <div className="middleRightTwo">
             <label htmlFor="rowMiddleTwoInputRight">Номер телефона</label>
             <input
+              value={numberValue}
+              onChange={(e) => setNumberValue(e.target.value)}
               type="text"
               className="form-control"
               id="rowMiddleTwoInputRight"
@@ -327,6 +443,8 @@ export default function Header() {
         <div className="rowBottom">
           <label htmlFor="rowBottom">Комментарий к заказу</label>
           <textarea
+            value={textareaValue}
+            onChange={(e) => setTextAreaValue(e.target.value)}
             rows={5}
             id="rowBottom"
             className="form-control"
@@ -334,10 +452,11 @@ export default function Header() {
           ></textarea>
         </div>
 
-        <button className="buttonBottom">Оформить</button>
+        <button className="buttonBottom" onClick={sendApplication}>
+          Оформить
+        </button>
         {/* <button onClick={() => setOpenTwo(!openTwo)}>och</button> */}
       </Modal>
-
       <Modal
         open={openTwo}
         onClose={() => setOpenTwo(!openTwo)}

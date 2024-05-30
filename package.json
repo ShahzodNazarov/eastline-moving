@@ -25,6 +25,7 @@
     "react-slick": "^0.30.2",
     "react-slider": "^2.0.6",
     "react-slideshow-image": "^4.3.1",
+    "react-toastify": "^10.0.5",
     "react-yandex-maps": "^4.6.0",
     "sass": "^1.75.0",
     "swiper": "^11.1.1",
