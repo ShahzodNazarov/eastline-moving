@@ -17,14 +17,14 @@ import telegram from "./img/basil_telegram-outline.png";
 import eastlinelogo from "./img/eastline-black-logo 1.png";
 import SixthComponent from "./sixthComponent";
 import { Bounce, ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Header() {
   let size = localStorage.getItem("count");
 
   const [takeLoad, setTakeLoad] = useState("");
   const [unload, setUnload] = useState("");
-  const [TruckValue, setTruckValue] = useState('');
+  const [TruckValue, setTruckValue] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [numberValue, setNumberValue] = useState("");
   const [textareaValue, setTextAreaValue] = useState("");
@@ -86,30 +86,27 @@ export default function Header() {
     setUnload(valueLoad);
   }
 
-
   function getAlert(sms) {
     setOpenOne(false);
     toast.success(`🦄 ${sms}! `, {
-    position: "top-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    transition: Bounce,
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
     });
   }
 
-
   function checkEmpty() {
-    if (takeLoad!=''&&unload!=''&&TruckValue!='') {
-       return true;
-       console.log(takeLoad);
-    }else return false;
+    if (takeLoad != "" && unload != "" && TruckValue != "") {
+      return true;
+      console.log(takeLoad);
+    } else return false;
   }
-
 
   function sendApplication() {
     let obj = {
@@ -122,8 +119,8 @@ export default function Header() {
       textareaValue,
     };
     if (checkEmpty()) {
-      getAlert('request send succesfullt')
-    }else getAlert('sending sms error')
+      getAlert("request send succesfullt");
+    } else getAlert("sending sms error");
 
     console.log(obj);
   }
@@ -131,17 +128,17 @@ export default function Header() {
   return (
     <div className="headerComponentContainer">
       <ToastContainer
-position="top-right"
-autoClose={1000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="dark"
-/>
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="headerTop">
         <div className="headerTopLeft">
           <ul>
@@ -194,6 +191,7 @@ theme="dark"
       >
         <Navbar.Brand href="https://eastline.uz">
           <img src={eastlinelogo} alt="Logo 1" className="brand-logo mr-2" />
+        
         </Navbar.Brand>
         <Navbar.Brand href="https://eastline.uz" className="navbarBreand">
           <h6>
@@ -204,10 +202,10 @@ theme="dark"
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto " style={{}}>
             <hr />
-            <button className="calculator" onClick={() => setOpenOne(!openOne)}>
+            {/* <button className="calculator" onClick={() => setOpenOne(!openOne)}>
               Калькулятор
-            </button>
-            <hr />
+            </button> */}
+            
             <Link
               onClick={location.pathname != "/" ? backToMain : defaultComp}
               to="third"

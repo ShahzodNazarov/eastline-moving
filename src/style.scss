@@ -108,14 +108,12 @@
   color: #5abfab !important;
   margin-left: -20px;
   font-weight: 600;
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
     visibility: hidden;
   }
 }
 
-
 .customModalOne {
- 
   border-radius: 20px;
   h1 {
     font-family: Inter;
@@ -125,14 +123,14 @@
     color: #5abfab;
   }
   .rowTop {
-    margin-top:20px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     button {
       height: 50px;
       align-self: flex-end;
       border: none;
-      background:none;
+      background: none;
     }
     label {
       font-family: Inter;
@@ -144,17 +142,17 @@
       height: 50px;
       border-radius: 10px;
       background-color: #f7f7f7;
-      @media (max-width:600px){
+      @media (max-width: 600px) {
         width: 150px;
       }
-      @media (max-width:450px){
+      @media (max-width: 450px) {
         width: 120px;
       }
     }
   }
   .rowMiddleOne {
     display: none;
-    margin-top:15px;
+    margin-top: 15px;
     display: flex;
     justify-content: space-evenly;
     button {
@@ -162,7 +160,7 @@
       align-self: flex-end;
       border: none;
       visibility: hidden;
-      @media (max-width:450px){
+      @media (max-width: 450px) {
         width: 10px;
       }
     }
@@ -177,10 +175,10 @@
       height: 50px;
       border-radius: 10px;
       background-color: #f7f7f7;
-      @media (max-width:600px){
+      @media (max-width: 600px) {
         width: 150px;
       }
-      @media (max-width:450px){
+      @media (max-width: 450px) {
         width: 120px;
       }
     }
@@ -189,14 +187,14 @@
       height: 50px;
       border-radius: 10px;
       background-color: #f7f7f7;
-      @media (max-width:600px){
+      @media (max-width: 600px) {
         width: 150px;
       }
     }
   }
 
   .rowMiddleTwo {
-    margin-top:15px;
+    margin-top: 15px;
     display: flex;
     justify-content: space-evenly;
     label {
@@ -215,14 +213,14 @@
     }
     .middleRightTwo {
       width: 60%;
-      @media (max-width:400px){
+      @media (max-width: 400px) {
         width: 50%;
       }
     }
 
     .btnMiddleTwo {
       visibility: hidden;
-      @media (max-width:400px){
+      @media (max-width: 400px) {
         width: 10px;
       }
     }
@@ -236,22 +234,21 @@
       justify-content: space-evenly;
       align-items: center;
       gap: 20px;
-     button{
-      background-color: white;
-      border: none;
-      margin-left: 5px;
-     }
-     h5{
-      margin: 5px;
-      
-     }
+      button {
+        background-color: white;
+        border: none;
+        margin-left: 5px;
+      }
+      h5 {
+        margin: 5px;
+      }
     }
   }
 
   .rowBottom {
     margin-top: 15px;
     border-radius: 10px;
-    
+
     label {
       font-family: Inter;
       font-size: 16px;
@@ -259,7 +256,7 @@
     }
   }
   .buttonBottom {
-    margin-top:10px;
+    margin-top: 10px;
     width: 100%;
     height: 50px;
     gap: 0px;
@@ -267,7 +264,7 @@
     background-color: #5abfab;
     color: white;
     border: none;
-    @media (max-width:450px){
+    @media (max-width: 450px) {
     }
   }
 }
@@ -277,13 +274,19 @@
 .firstComp {
   max-width: 1600px;
   max-height: 700px;
+  @media (max-width: 1000px) {
+    max-height: 1320px;
+    background-color: #f0f8ff;
+    padding-bottom: 20px;
+  }
+  position: relative;
 }
 
 .bigImgText {
   height: 100vh;
   width: 120vh;
   margin-bottom: -20px;
-  margin-left: -213px;
+  margin-left: -227px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -351,6 +354,199 @@
 
 .image-background-three {
   background-image: url("./components/img/RectangleTwo.png");
+}
+
+// calculator changing code ----------->>>>>>>>>>
+
+.calculator {
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.customModalOne {
+  position: absolute;
+  background-color: white;
+  padding: 20px;
+  top: 40px;
+  right: 80px;
+  border-radius: 20px;
+  margin: 20px auto;
+  @media (max-width: 1000px) {
+    width: 550px;
+    position: static;
+  }
+  @media (max-width: 600px) {
+    width: 400px;
+    position: static;
+  }
+  @media (max-width: 440px) {
+    width: 360px;
+    position: static;
+  }
+  h1 {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.05px;
+    color: #5abfab;
+  }
+  .rowTop {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      height: 50px;
+      align-self: flex-end;
+      border: none;
+      background: none;
+    }
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    input {
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      @media (max-width: 600px) {
+        width: 150px;
+      }
+      @media (max-width: 450px) {
+        width: 120px;
+      }
+    }
+  }
+  .rowMiddleOne {
+    display: none;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      height: 50px;
+      align-self: flex-end;
+      border: none;
+      visibility: hidden;
+      @media (max-width: 450px) {
+        width: 10px;
+      }
+    }
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    input {
+      width: 100%;
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      @media (max-width: 600px) {
+        width: 150px;
+      }
+      @media (max-width: 450px) {
+        width: 120px;
+      }
+    }
+    select {
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+      @media (max-width: 600px) {
+        width: 150px;
+      }
+    }
+  }
+
+  .rowMiddleTwo {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    input {
+      // width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f7f7f7;
+    }
+    .middleTwoLeft {
+      width: 30%;
+    }
+    .middleRightTwo {
+      width: 60%;
+      @media (max-width: 400px) {
+        width: 50%;
+      }
+    }
+
+    .btnMiddleTwo {
+      visibility: hidden;
+      @media (max-width: 400px) {
+        width: 10px;
+      }
+    }
+
+    .leftDivMiddleTwo {
+      width: 100%;
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      display: flex;
+      height: 50px;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 20px;
+      button {
+        background-color: white;
+        border: none;
+        margin-left: 5px;
+      }
+      h5 {
+        margin: 5px;
+      }
+    }
+  }
+
+  .rowBottom {
+    margin-top: 15px;
+    border-radius: 10px;
+
+    label {
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+  .buttonBottom {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    gap: 0px;
+    border-radius: 10px;
+    background-color: #5abfab;
+    color: white;
+    border: none;
+    @media (max-width: 450px) {
+    }
+  }
+
+  .selectHour {
+    margin-top: 5px;
+    select {
+      background-color: #f7f7f7;
+    }
+  }
+}
+.changeColorSelect {
+  background-color: blanchedalmond !important;
 }
 
 // beginning of the second component ------>>>>>>>>>

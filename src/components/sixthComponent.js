@@ -4,6 +4,11 @@ import RectangleTwo from './img/services/Rectangle 24.png'
 import RectangleThree from './img/services/Rectangle 27.png'
 import RectangleFour from './img/services/Rectangle 31.png'
 import RectangleFive from './img/services/Rectangle 32.png'
+import RectangleSix from './img/newPhotos/Rectangle 68.png'
+import RectangleSeven from './img/newPhotos/Rectangle 72.png'
+import RectangleEight from './img/newPhotos/Rectangle 73.png'
+
+
 import { useNavigate } from "react-router-dom";
 export default function SixthComponent() {
   let navigate = useNavigate();
@@ -43,6 +48,26 @@ export default function SixthComponent() {
                 <h1>Разборка-сборка мебели</h1>
                 <p>Сборка мебели - это процесс составления отдельных элементов и...</p>
                 <button onClick={()=>(navigate('/service-5'))}>Читать</button>
+             </div>
+
+             
+             <div className="box">
+                <img src={RectangleSix} alt="#" className="img-fluid"/>
+                <h1>Кондиционер монтаж</h1>
+                <p>Кондиционер монтаж - это процесс составления отдельных элементов и...</p>
+                <button onClick={()=>(navigate('/service-6'))}>Читать</button>
+             </div>
+             <div className="box">
+                <img src={RectangleSeven} alt="#" className="img-fluid"/>
+                <h1>Уборка (женщины)</h1>
+                <p>Нужна грузовая машина для перевозки? y нас вы можете также заказать...</p>
+                <button onClick={()=>(navigate('/service-7'))}>Читать</button>
+             </div>
+             <div className="box">
+                <img src={RectangleEight} alt="#" className="img-fluid"/>
+                <h1>Женская помощь</h1>
+                <p>Женская помощь - это процесс составления отдельных элементов и...</p>
+                <button onClick={()=>(navigate('/service-8'))}>Читать</button>
              </div>
         </div>
       </h1>
